@@ -242,4 +242,4 @@ Look at the scan results in the Chef Automate browser:<br />
 ![CIS GCP API Scan Results](/labs/images/gcp-cis-run.png)
 
 
-[Back to the Lab Index](../LAB_INDEX.md)
+[Back to the Lab Index](../README>md)
