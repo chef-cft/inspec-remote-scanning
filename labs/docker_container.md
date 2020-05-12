@@ -85,4 +85,4 @@ end
 
 2. Using the Chef Automate supplied CIS Docker Benchmark.
 
-[Back to the Lab Index](../README>md)
+[Back to the Lab Index](../README.md)

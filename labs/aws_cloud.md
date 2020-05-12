@@ -204,4 +204,4 @@ Look at the scan results in the Chef Automate browser:<br />
 ![CIS AWS API Scan Results](/labs/images/aws-cis-run.png)
 
 
-[Back to the Lab Index](../README>md)
+[Back to the Lab Index](../README.md)

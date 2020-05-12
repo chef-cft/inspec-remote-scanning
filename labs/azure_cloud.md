@@ -210,4 +210,4 @@ Look at the scan results in the Chef Automate browser:<br />
 ![CIS Azure API Scan Results](/labs/images/azure-cis-run.png)
 
 
-[Back to the Lab Index](../README>md)
+[Back to the Lab Index](../README.md)
