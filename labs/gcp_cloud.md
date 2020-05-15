@@ -63,7 +63,7 @@ The Source - the actual InSpec code that ran to perform the check:<br />
 ![Control Source](/labs/images/gcp-control-source.png)<br />
 5. You may have noticed that we supplied the `gcp_project_id` as an input when we ran our scans. Lets investigate another way of providing input parameters.<br />
 In the `gcp` directory create a `inputs.yml` file and add this:<br />
-`gcp_project_id: 'chef-sa'` line.<br />
+`gcp_project_id: 'chef-sa'`<br />
 Save the changes.<br />
 Observe the `inspec.yml` file to see where the input is defined as shown:<br />
 ``` yml
@@ -179,7 +179,7 @@ Test Summary: 3 successful, 1 failure, 0 skipped
 You can also see the results in the Chef Automate browser.
 
 We can see at this point that one of our buckets is incorrectly encrypted - now would be a good time to adjust the software that creates the buckets, which could be Chef remediation cookbooks.<br />
-2. (Advanced - skip if you want). Debugging your test: As you build out your tests it is useful to be able to debug them, we can use `pry` for that. Uncomment the `require "pry";binding.pry` line and run your InSpec test again, you sholuld see output like this:<br />
+2. (Advanced - skip if you want). Debugging your test: As you build out your tests it is useful to be able to debug them, we can use `pry` for that. Uncomment the `require "pry";binding.pry` line and run your InSpec test again, you should see output like this:<br />
 ``` ruby
 8:     impact 1.0
      9:     title 'Classification of highly-confidential Buckets must have HSM keys'
@@ -226,7 +226,7 @@ We can go even further and see what our later `google_storage_bucket(name: bucke
 ```
 Press `q` to exit and `exit-program` to exit pry.
 ## 4. Center For Internet (CIS) Profile execution
-1. The Centre for Internet Security produces a CIS GCP Foundation Benchmark, Chef has implemented that benchmark uisng InSpec, it is fully accreditied by CIS. We are now going to obtain that benchmark from Chef Automate and execute it against the GCP cloud.<br />
+1. The Centre for Internet Security produces a CIS Docker Benchmark, Chef has implemented that benchmark uisng InSpec. We are now going to obtain that benchmark from Chef Automate and execute it against the GCP cloud.<br />
 Login to Chef Automate via the terminal:<br />
 `inspec compliance login --insecure --user=workstation-<x> --token <Chef Automate Token> <Chef Automate Hostname>`<br />
 For example:<br />
@@ -235,11 +235,11 @@ For example:<br />
 Stored configuration for Chef Automate2: https://afd-a2.chefdemo.cloud/api/v0' with user: 'workstation-1'
 ```
 Open the Chrome Browser and go to the `Compliance` menu, then the `Profiles` tab on the left, see that the `CIS Google Cloud Platform Foundation Benchmark Level 1` profile is available to your `workstation-x` user.
-![Chef Automate Profile](/labs/images/gcp-foundation.png)
-Next lets execute that profile against the GCP API (replace `<x>` with your workstation number) - the tests will take about 6 minutes to run:<br />
-`inspec exec compliance://workstation-<x>/cis-gcp-benchmark-level1 -t gcp:// --config=reporter.json --input-file=inputs.yml`<br />
+![Chef Automate Profile](/labs/images/docker-benchmark.png)
+Next lets execute that profile against our Docker Host (replace `<x>` with your workstation number) - it will only take a few seconds to run:<br />
+`inspec exec compliance://workstation-<x>/cis-docker-benchmark --config=reporter.json --input-file=inputs.yml`<br />
 Look at the scan results in the Chef Automate browser:<br />
-![CIS GCP API Scan Results](/labs/images/gcp-cis-run.png)
+![CIS GCP API Scan Results](/labs/images/docker-cis-run.png)
 
 
 [Back to the Lab Index](../README.md)
